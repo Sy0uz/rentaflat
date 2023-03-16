@@ -1,0 +1,11 @@
+.tenants {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 230px);
+    padding: 8px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 230px);
+    padding: 8px;
+}

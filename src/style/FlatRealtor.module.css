@@ -1,0 +1,29 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.realtor {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    font-weight: 700;
+}
+
+.avatarBox {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 100px;
+}
+
+.avatar {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}

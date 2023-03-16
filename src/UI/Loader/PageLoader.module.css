@@ -1,0 +1,29 @@
+.wrapper {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 108px);
+}
+
+.loader {
+    margin-top: 50px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 4px dashed var(--orange);
+    animation: loaderAnimation 1.5s linear 0s infinite;
+}
+
+@keyframes loaderAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.3);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,63 @@
+.icon {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.icon::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+}
+
+.fridge::before {
+    background-image: url("../../public/images/icons/fridge.png");
+}
+
+.furniture_kitchen::before {
+    background-image: url("../../public/images/icons/sink.png");
+}
+
+.internet::before {
+    background-image: url("../../public/images/icons/internet.png");
+}
+
+.washing_machine::before {
+    background-image: url("../../public/images/icons/washer.png");
+}
+
+.conditioner::before {
+    background-image: url("../../public/images/icons/conditioner.png");
+}
+
+.bath::before {
+    background-image: url("../../public/images/icons/bath.png");
+}
+
+.furniture_rooms::before {
+    background-image: url("../../public/images/icons/sofa.png");
+}
+
+.tv::before {
+    background-image: url("../../public/images/icons/tv.png");
+}
+
+.shower::before {
+    background-image: url("../../public/images/icons/shower.png");
+}
+
+.dishwasher::before {
+    background-image: url("../../public/images/icons/dishwasher.png");
+}
+
+.children::before {
+    background-image: url("../../public/images/icons/child.png");
+}
+
+.animals::before {
+    background-image: url("../../public/images/icons/dog.png");
+}

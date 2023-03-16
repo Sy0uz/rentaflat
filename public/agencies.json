@@ -1,0 +1,18 @@
+[
+    {
+        "id":1,
+        "title": "House Estate",
+        "image": "/images/agenciesAvatars/1.jpg",
+        "flatInOwn": [
+            1
+        ]
+    },
+    {
+        "id":2,
+        "title": "Свой мир",
+        "image": "/images/agenciesAvatars/2.jpg",
+        "flatInOwn": [
+            2
+        ]
+    }
+]

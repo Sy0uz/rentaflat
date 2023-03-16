@@ -1,0 +1,24 @@
+.wrapper {
+    height: 60px;
+    background-color: white;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 8px;
+}
+
+.header {
+    display: flex;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    color:black;
+    text-decoration: none;
+}
+
+.icon {
+    font-size: 2rem;
+    margin-right: 8px;
+    color: var(--orange);
+}

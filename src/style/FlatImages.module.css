@@ -1,0 +1,67 @@
+.wrapper {
+    margin-top: 8px;
+    max-height: 600px;
+    position: relative;
+}
+
+.window {
+    height: 500px;
+    overflow: hidden;
+}
+
+.allPages {
+    height: 100%;
+    display: flex;
+    transition: 0.4s all ease-in-out;
+}
+
+.imgBox {
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.btns {
+    position: absolute;
+    transition: 0.2s all ease-in;
+    padding: 0px 16px;
+    width: 100%;
+    top:50%;
+    display: flex;
+    opacity: 0;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+.wrapper:hover .btns {
+    opacity: 1;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 4px;
+    bottom: -12px;
+}
+
+.bottomBtn {
+    background-color: white;
+    transition: 0.2s all ease-in;
+    opacity: 1;
+    margin-top: 8px;
+    border: 1px solid black;
+    border-radius: 12px;
+    width: 28px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.bottomBtn.active {
+    border: 1px solid var(--orange);
+}
