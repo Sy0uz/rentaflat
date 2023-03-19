@@ -8,11 +8,11 @@ export const FlatsActionCreators = {
     setError: (payload: string): FlatsAction => ({type:FlatsActionEnum.SET_FLATS_ERROR, payload}),
     clearFlats: (): FlatsAction => ({type:FlatsActionEnum.CLEAR_FLATS}),
     setFlats: (payload: IFlat[]): FlatsAction => ({type:FlatsActionEnum.SET_FLATS, payload}),
-    fetchFlats: () => async (dispatch:AppDispatch) => {
+    fetchFlats: (query:string = '', rooms:number[] = [], priceGap: {from:number, to:number} = {from:0, to:0}) => async (dispatch:AppDispatch) => {
         try {
             dispatch(FlatsActionCreators.setIsLoading(true));
             setTimeout(async () => {
-                const response:IFlat[] = await PostService.getAllFlats();
+                const response:IFlat[] = await PostService.getFilteredFlats(query, rooms, priceGap);
                 dispatch(FlatsActionCreators.setFlats(response));
                 dispatch(FlatsActionCreators.setIsLoading(false));
             }, 1000)
@@ -20,5 +20,5 @@ export const FlatsActionCreators = {
             dispatch(FlatsActionCreators.setError('Ошибка!'))
             dispatch(FlatsActionCreators.setIsLoading(false));
         }
-    } 
+    }
 }

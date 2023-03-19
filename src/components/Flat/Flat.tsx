@@ -14,11 +14,11 @@ interface FlatProps {
 
 const Flat:FC<FlatProps> = ({flat}) => {
     return (
-        <Centered>
+        <Centered className={s.wrapper}>
             {
                 flat &&
                 <>
-                    <div className={s.wrapper}>
+                    <div className={s.content}>
                         <div className={s.main}>
                             <FlatMain flat={flat}/>
 

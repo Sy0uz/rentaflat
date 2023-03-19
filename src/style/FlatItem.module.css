@@ -1,0 +1,54 @@
+.wrapper {
+    text-decoration: none;
+    color:black;
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.wrapper + .wrapper {
+    margin-top: 6px;
+}
+
+.wrapper:hover {
+    box-shadow: 0px 0px 4px 1px rgb(163, 163, 163);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.address {
+    opacity: 0.6;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.price {
+    margin-top: 8px;
+}
+
+.communal {
+    opacity: 0.8;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.desc {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    max-height: 85px;
+}
+
+.time {
+    opacity: 0.7;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}

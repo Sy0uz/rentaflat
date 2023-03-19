@@ -5,9 +5,10 @@ import { LeftOutlined , RightOutlined } from '@ant-design/icons';
 
 interface ImagesProps {
     images: string[];
+    size?: 'small' | 'default';
 }
 
-const FlatImages:FC<ImagesProps> = ({images}) => {
+const FlatImages:FC<ImagesProps> = ({images, size = 'default'}) => {
 
     const [page, setPage] = useState<number>(0);
 
@@ -34,26 +35,33 @@ const FlatImages:FC<ImagesProps> = ({images}) => {
 
     return (
         <div className={s.wrapper}>
-            <div className={s.window}>
+            <div className={size === 'small' ? [s.window, s.small].join(' ') : s.window}>
                 <div className={s.allPages} style={{transform:`translateX(${position}%)`}}>
                     {
                         images.map(
-                            i => <div key={i} className={s.imgBox} style={{backgroundImage: `url(${i})`}}/>
+                            i => <div key={i} className={size === 'small' ? [s.imgBox, s.small].join(' ') : s.imgBox} style={{backgroundImage: `url(${i})`}}/>
                         )
                     }
                 </div>
             </div>
             <div className={s.btns}>
-                <Button type='primary' onClick={() => pageHandler()} icon={<LeftOutlined/>}/>
-                <Button type='primary' onClick={() => pageHandler(1)} icon={<RightOutlined/>}/>
+                <Button type='primary' onClick={(e) => {e.preventDefault(); pageHandler()}} icon={<LeftOutlined/>}/>
+                <Button type='primary' onClick={(e) => {e.preventDefault(); pageHandler(1)}} icon={<RightOutlined/>}/>
             </div>
-            <div className={s.bottom}>
-                {
-                    images.map(
-                        (i,idx) => <div key={i} className={idx === page ? [s.bottomBtn, s.active].join(' ') :s.bottomBtn} onClick={() => setPage(idx)}/>
-                    )
-                }
-            </div>
+            {
+                size === 'default'
+                ?
+                <div className={s.bottom}>
+                    {
+                        images.map(
+                            (i,idx) => <div key={i} className={idx === page ? [s.bottomBtn, s.active].join(' ') :s.bottomBtn} onClick={() => setPage(idx)}/>
+                        )
+                    }
+                </div>
+                :
+                <></>          
+            }
+
         </div>
     )
 }

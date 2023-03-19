@@ -1,12 +1,17 @@
 .wrapper {
-    margin-top: 8px;
+    margin-bottom: 6px;
     max-height: 600px;
     position: relative;
+    width: 100%;
 }
 
 .window {
     height: 500px;
     overflow: hidden;
+}
+
+.window.small {
+    height: 210px;
 }
 
 .allPages {
@@ -26,12 +31,16 @@
     background-size: contain;
 }
 
+.imgBox.small {
+    background-size: cover;
+}
+
 .btns {
     position: absolute;
     transition: 0.2s all ease-in;
     padding: 0px 16px;
     width: 100%;
-    top:50%;
+    top:45%;
     display: flex;
     opacity: 0;
     justify-content: space-between;

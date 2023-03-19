@@ -1,0 +1,35 @@
+.button {
+    background-color: white;
+    color:rgb(61, 61, 61);
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    width: 100%;
+}
+
+.icon {
+    font-size: 12px;
+    position: absolute;
+    right: 8px;
+    top: 41%;
+    color:gray;
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon.active {
+    transform: rotate(180deg);
+}
+
+.button.active,
+.button:hover {
+    background-color: var(--orange-opacity);
+    color:black;
+}
+
+.button:hover .icon,
+.button.active .icon {
+    color:black;
+}

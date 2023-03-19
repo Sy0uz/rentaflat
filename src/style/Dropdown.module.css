@@ -1,0 +1,23 @@
+.wrapper {
+    position: relative;
+    user-select: none;
+    flex-grow: 1;
+}
+
+.dropdown {
+    position: absolute;
+    display: none;
+    background-color: white;
+    top: 110%;
+    padding: 12px 14px;
+    border-radius: 6px;
+    box-shadow: 1px 1px 4px 0px rgb(110, 110, 110);
+    max-height: 400px;
+    overflow: auto;
+    z-index: 200;
+}
+
+.dropdown.active {
+    display: flex;
+    gap: 8px;
+}

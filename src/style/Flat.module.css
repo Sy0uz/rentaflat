@@ -1,4 +1,8 @@
 .wrapper {
+    margin: 8px auto;
+}
+
+.content {
     display: grid;
     grid-template-columns: minmax(200px, 2fr) minmax(100px, 1fr);
     align-items: flex-start;

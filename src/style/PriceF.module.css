@@ -1,0 +1,5 @@
+.inputs {
+    min-width: 280px;
+    display: flex;
+    gap: 12px;
+}
