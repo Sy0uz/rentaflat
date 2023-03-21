@@ -13,7 +13,7 @@ const FlatImagePreview:FC<ImagePreviewProps> = ({images}) => {
             <FlatImages images={images} size='small'/>
             <div className={s.miniImages}>
                 {
-                    images.map((i, idx) => idx < 4 && idx > 0 ? <div style={{backgroundImage:`url(${i})`}} className={s.image}/> : <></>)
+                    images.map((i, idx) => idx < 4 && idx > 0 ? <div key={i} style={{backgroundImage:`url(${i})`}} className={s.image}/> : null)
                 }
             </div>
         </div>

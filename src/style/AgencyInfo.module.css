@@ -1,0 +1,44 @@
+.wrapper {
+    background-color: white;
+    padding: 20px 0;
+}
+
+.centered {
+    padding: 16px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.infoHead {
+    margin-bottom: 12px;
+}
+
+.infoYear {
+    font-size: 14px;
+    opacity: 0.6;
+    margin-top: 6px;
+}
+
+.image {
+    width: 120px;
+    height: 120px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.specTitle {
+    opacity: 0.6;
+    margin-bottom: 6px;
+}
+
+.specText {
+    max-width: 450px;
+}

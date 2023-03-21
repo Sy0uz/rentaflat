@@ -1,0 +1,13 @@
+.wrapper {
+    background-color: white;
+}
+
+.loaderBox {
+    display: flex;
+    justify-content: center;
+}
+
+.listTitle {
+    margin-top: 20px;
+    padding: 0px 16px 12px 16px;
+}

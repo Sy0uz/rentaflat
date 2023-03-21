@@ -3,16 +3,30 @@
         "id":1,
         "title": "House Estate",
         "image": "/images/agenciesAvatars/1.jpg",
-        "flatInOwn": [
+        "flatIdInOwn": [
             1
-        ]
+        ],
+        "specialization": "Аренда недвижимости: жилая, загородная, коммерческая, Ипотечное кредитование: ипотека.",
+        "year": 2010
     },
     {
         "id":2,
         "title": "Свой мир",
         "image": "/images/agenciesAvatars/2.jpg",
-        "flatInOwn": [
+        "flatIdInOwn": [
             2
-        ]
+        ],
+        "specialization": null,
+        "year": 2020
+    },
+    {
+        "id":3,
+        "title": "Golden Home",
+        "image": "/images/agenciesAvatars/3.jpg",
+        "flatIdInOwn": [
+            3,4
+        ],
+        "specialization": "Аренда недвижимости: жилая, загородная, коммерческая, Другие услуги: консультации, Ипотечное кредитование: ипотека, рефинансирование.",
+        "year": 2013
     }
 ]

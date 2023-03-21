@@ -8,17 +8,6 @@ export class PostService {
         return response.data;
     }
 
-    static async getFlat(id:string):Promise<IFlat | null> {
-        const response = await axios.get<IFlat[]>('/flats.json');
-        const result = response.data.find((flat) => String(flat.id) === id);
-        return result ? result : null;
-    }
-
-    static async getAgencies():Promise<IAgency[]> {
-        const response = await axios.get<IAgency[]>('/agencies.json');
-        return response.data;
-    }
-
     static async getFilteredFlats(query:string = '', rooms:number[] = [], priceGap: {from:number, to:number} = {from:0, to:0}):Promise<IFlat[]> {
         const response = await axios.get<IFlat[]>('/flats.json');
         let result = response.data;
@@ -49,5 +38,22 @@ export class PostService {
         })
 
         return result;
+    }
+
+    static async getFlat(id:string):Promise<IFlat | null> {
+        const response = await axios.get<IFlat[]>('/flats.json');
+        const result = response.data.find((flat) => String(flat.id) === id);
+        return result ? result : null;
+    }
+
+    static async getAgencies():Promise<IAgency[]> {
+        const response = await axios.get<IAgency[]>('/agencies.json');
+        return response.data;
+    }
+
+    static async getAgency(id: string):Promise<IAgency | null> {
+        const response = await axios.get<IAgency[]>('/agencies.json');
+        const result = response.data.find(a => String(a.id) === id);
+        return result ? result : null;
     }
 }

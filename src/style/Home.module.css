@@ -7,10 +7,22 @@
     height: 400px;
 }
 
+.title {
+    color:white;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px black;
+    opacity: 1;
+}
+
 .content {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 8px;
+}
+
+.notFoundBox {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }

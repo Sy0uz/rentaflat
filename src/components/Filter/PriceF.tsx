@@ -1,20 +1,25 @@
 import { Input } from 'antd';
-import { FC, useMemo, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Dropdown from '../Dropdown'
 import FilterBtn from './FilterBtn';
 import s from './../../style/PriceF.module.css'
 import { LocaleNumStringValidator } from '../../utils/LocaleNumStringValidator';
 import { ShortPrice } from '../../utils/ShortPrice';
 import { CutString } from '../../utils/CutString';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { useActions } from '../../hooks/useActions';
 
-const PriceF:FC = () => {
+interface PrcieFProps {
+    price: {
+        from: number,
+        to: number,
+    };
+    setPriceGap: (price:{from: number,to: number}) => void;
+}
+
+const PriceF:FC<PrcieFProps> = ({price, setPriceGap}) => {
 
     const [opened, setOpened] = useState<boolean>(false);
-
-    const {price} = useTypedSelector(state => state.filterReducer);
-    const {setPriceGap} = useActions();
+    const [warning, setWarning] = useState<boolean>(false);
+    const [BtnText, setBtnText] = useState<string>('Цена');
 
     const fromHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target.value) {
@@ -34,27 +39,29 @@ const PriceF:FC = () => {
         setPriceGap({...price, to: LocaleNumStringValidator(e.target.value) || price.to});
     };
 
-    const warning:boolean = useMemo(() => {
-        if (price.from > price.to)
-            return true;
-        return false;
-    }, [price.from, price.to]);
+    useEffect(() => {
+        if (price.from > price.to) {
+            setWarning(true);
+            return;
+        }
+        setWarning(false);
+    }, [price.from, price.to])
 
-    const BtnText:string = useMemo(() => {
-        if (!price.from && !price.to)
-            return 'Цена';
-
-        if (price.from && !price.to)
-            return CutString(`от ${ShortPrice(price.from)}`, 18);
-            
+    useEffect(() => {
+        if (!price.from && !price.to) {
+            setBtnText('Цена');
+        }
+        else if (price.from && !price.to) {
+            setBtnText(CutString(`от ${ShortPrice(price.from)}`, 18));
+        }
         else if (!price.from && price.to)
-            return CutString(`до ${ShortPrice(price.to)}`, 18);
+            setBtnText(CutString(`до ${ShortPrice(price.to)}`, 18));
 
         else if (price.from && price.to)
-            return CutString(`${ShortPrice(price.from)} - ${ShortPrice(price.to)}`, 18)
-        
-        return '';
-    }, [price]);
+            setBtnText(CutString(`${ShortPrice(price.from)} - ${ShortPrice(price.to)}`, 18));
+        else 
+            setBtnText('');
+    }, [price])
 
     return (
         <Dropdown

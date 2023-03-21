@@ -5,6 +5,7 @@ import { FlatsAction, FlatsActionEnum } from "./types";
 
 export const FlatsActionCreators = {
     setIsLoading: (payload: boolean): FlatsAction => ({type:FlatsActionEnum.SET_FLATS_IS_LOADING, payload}),
+    changeIsQuest: (payload: boolean): FlatsAction => ({type: FlatsActionEnum.CHANGE_IS_QUEST, payload}),
     setError: (payload: string): FlatsAction => ({type:FlatsActionEnum.SET_FLATS_ERROR, payload}),
     clearFlats: (): FlatsAction => ({type:FlatsActionEnum.CLEAR_FLATS}),
     setFlats: (payload: IFlat[]): FlatsAction => ({type:FlatsActionEnum.SET_FLATS, payload}),
@@ -15,6 +16,7 @@ export const FlatsActionCreators = {
                 const response:IFlat[] = await PostService.getFilteredFlats(query, rooms, priceGap);
                 dispatch(FlatsActionCreators.setFlats(response));
                 dispatch(FlatsActionCreators.setIsLoading(false));
+                dispatch(FlatsActionCreators.changeIsQuest(true));
             }, 1000)
         } catch (error) {
             dispatch(FlatsActionCreators.setError('Ошибка!'))

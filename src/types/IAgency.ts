@@ -2,5 +2,7 @@ export interface IAgency {
     id:number;
     title: string;
     image: string;
-    flatInOwn: number[]; //id квартир
+    flatIdInOwn: number[]; //id квартир
+    specialization: string | null;
+    year: number;
 }

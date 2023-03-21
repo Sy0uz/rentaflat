@@ -1,10 +1,13 @@
 import { FC } from 'react'
-import Home from '../components/Home';
+import Home from '../components/Home/Home';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const HomePage:FC = () => {
 
+    const {flats, isQuest} = useTypedSelector(state => state.flatsReducer)
+
     return (
-        <Home/>
+        <Home flats={flats} isQuest={isQuest}/>
     )
 }
 

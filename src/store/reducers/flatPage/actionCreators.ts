@@ -18,7 +18,7 @@ export const FlatPageActionCreators = {
                     dispatch(FlatPageActionCreators.setFlatEror(`Квартира с ID: ${id} не найдена!`))
                 
                 dispatch(FlatPageActionCreators.setFlatIsLoading(false));
-            }, 1000)
+            }, 500)
         } catch (error) {
             dispatch(FlatPageActionCreators.setFlatEror('Ошибка!!!'))
         }

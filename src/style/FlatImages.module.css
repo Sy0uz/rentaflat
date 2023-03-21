@@ -73,4 +73,5 @@
 
 .bottomBtn.active {
     border: 1px solid var(--orange);
+    background-color: var(--orange);
 }

@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { IFlat } from '../types/IFlat'
 import FlatItem from './FlatItem';
-import s from './../style/FlatsList.module.css'
 
 interface FlatsListProps {
     flats: IFlat[];
@@ -9,9 +8,9 @@ interface FlatsListProps {
 
 const FlatsList:FC<FlatsListProps> = ({flats}) => {
     return (
-        <div className={s.wrapper}>
+        <div>
             {
-                flats.map((flat) => <FlatItem flat={flat}/>)
+                flats.map((flat) => <FlatItem key={flat.id} flat={flat}/>)
             }
         </div>
     )

@@ -1,4 +1,4 @@
-import { FC, useState, useMemo } from 'react';
+import { FC, useState, useEffect } from 'react';
 import s from './../../style/FlatImages.module.css';
 import { Button } from 'antd';
 import { LeftOutlined , RightOutlined } from '@ant-design/icons';
@@ -11,9 +11,10 @@ interface ImagesProps {
 const FlatImages:FC<ImagesProps> = ({images, size = 'default'}) => {
 
     const [page, setPage] = useState<number>(0);
+    const [position, setPosition] = useState<number>(0);
 
-    const position:number = useMemo(() => {
-        return page * -100;
+    useEffect(() => {
+        setPosition(page * -100);
     }, [page])
 
     const pageHandler = (pos:number = 0) => {

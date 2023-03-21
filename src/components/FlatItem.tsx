@@ -9,7 +9,6 @@ import { FlatPaymentCreator } from '../utils/FlatPaymentsCreator';
 import { FlatTitleCreator } from '../utils/FlatTitleCreator';
 import s from './../style/FlatItem.module.css'
 import FlatImagePreview from './Flat/FlatImagePreview';
-import FlatPrice from './Flat/Sidebar/FlatPrice';
 
 interface FlatItemProps {
     flat: IFlat;

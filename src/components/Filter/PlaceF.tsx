@@ -1,17 +1,13 @@
 import { Input } from 'antd';
 import { FC } from 'react'
-import { useActions } from '../../hooks/useActions';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
 import s from './../../style/PlaceF.module.css'
 
 interface PlaceFProps {
-
+    query: string;
+    setFilterQuery: (query: string) => void;
 }
 
-const PlaceF:FC<PlaceFProps> = () => {
-
-    const {query} = useTypedSelector(state => state.filterReducer);
-    const {setFilterQuery} = useActions();
+const PlaceF:FC<PlaceFProps> = ({query, setFilterQuery}) => {
 
     const handler = (e:React.ChangeEvent<HTMLInputElement>) => {
         setFilterQuery(e.target.value);

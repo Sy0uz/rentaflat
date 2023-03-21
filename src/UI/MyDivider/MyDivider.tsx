@@ -8,7 +8,7 @@ interface MyDividerProps {
 
 const MyDivider:FC<MyDividerProps> = ({className, marginY}) => {
     return (
-        <div style={marginY ? {margin:`${marginY}px 0`} : {}} className={className ? [s.divider, className].join(' ') : s.divider }/>
+        <div style={marginY ? {marginTop:`${marginY}px`, marginBottom:`${marginY}px`} : {}} className={className ? [s.divider, className].join(' ') : s.divider }/>
     )
 }
 

@@ -32,9 +32,7 @@ const FlatPage:FC = () => {
 
 
     return (
-        flat
-        ? <Flat flat={flat}/>
-        : <></>
+        flat && <Flat flat={flat}/>
     )
 }
 

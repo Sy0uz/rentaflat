@@ -4,12 +4,12 @@
     display: flex;
     gap: 16px;
     padding: 16px;
-    border-radius: 12px;
+    border-radius: 8px;
     position: relative;
 }
 
 .wrapper + .wrapper {
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
 .wrapper:hover {

@@ -14,6 +14,11 @@ const Navbar:FC = () => {
                     <HomeOutlined className={s.icon} />
                     <Title>RENT A FLAT</Title>
                 </Link>
+                <nav>
+                    <ul className={s.nav}>
+                        <li><Link to={RoutePath.AGENCIES} className={s.agencies}>Агенства</Link></li>
+                    </ul>
+                </nav>
             </Centered>
         </header>
     )
