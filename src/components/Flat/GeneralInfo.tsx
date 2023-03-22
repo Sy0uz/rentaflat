@@ -14,9 +14,9 @@ interface GeneralInfoProps {
 
 const GeneralInfo:FC<GeneralInfoProps> = ({tenants, features}) => {
     return (
-        <Wrapper>
+        <Wrapper className={s.wrapper}>
             <Pdiv>
-                <Title className={s.title} size='small'>Общая информация</Title>
+                <Title size='small'>Общая информация</Title>
             </Pdiv>
             <MyDivider/>
             {

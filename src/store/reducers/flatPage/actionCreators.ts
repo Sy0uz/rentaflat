@@ -10,15 +10,15 @@ export const FlatPageActionCreators = {
     fetchFlat:(id: string) => async (dispatch:AppDispatch) => {
         try {
             dispatch(FlatPageActionCreators.setFlatIsLoading(true));
-            setTimeout(async () => {
-                const response = await PostService.getFlat(id);
-                if (response)
-                    dispatch(FlatPageActionCreators.setFlat(response));
-                else 
-                    dispatch(FlatPageActionCreators.setFlatEror(`Квартира с ID: ${id} не найдена!`))
-                
-                dispatch(FlatPageActionCreators.setFlatIsLoading(false));
-            }, 500)
+
+            const response = await PostService.getFlat(id);
+            
+            if (response)
+                dispatch(FlatPageActionCreators.setFlat(response));
+            else
+                dispatch(FlatPageActionCreators.setFlatEror(`Квартира с ID: ${id} не найдена!`))
+
+            dispatch(FlatPageActionCreators.setFlatIsLoading(false));
         } catch (error) {
             dispatch(FlatPageActionCreators.setFlatEror('Ошибка!!!'))
         }

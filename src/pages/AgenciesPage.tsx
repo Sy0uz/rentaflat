@@ -29,9 +29,7 @@ const AgenciesPage:FC = () => {
     }, [])
 
     if (isLoading)
-        return <div style={{display:'flex', justifyContent:'center'}}>
-                <Loader/>
-            </div>
+        return <Loader/>
 
     return (
         <Agencies agencies={agencies}/>

@@ -20,6 +20,23 @@ const FlatPage:FC = () => {
         params.id && fetchFlat(params.id);
     }, [params.id])
 
+    useEffect(() => {
+        if (!params.id) return;
+        if (!flat) return;
+
+        let history = localStorage.getItem('history')
+        if (!history) {
+            let newHistory = [params.id];
+            localStorage.setItem('history', JSON.stringify(newHistory));
+        }
+        else {
+            let newHistory = new Set(JSON.parse(history));
+            
+            newHistory.add(params.id);
+            localStorage.setItem('history', JSON.stringify(Array.from(newHistory)));
+        }
+    }, [flat])
+
     if (isLoading)
         return <PageLoader/>
 

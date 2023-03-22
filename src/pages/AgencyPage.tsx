@@ -31,9 +31,7 @@ const AgencyPage:FC = () => {
     }, [agency])
 
     if (isLoading)
-        return <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Loader />
-        </div>
+        return <Loader />
 
     if (error)
         return <Centered>

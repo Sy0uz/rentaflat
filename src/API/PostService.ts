@@ -4,12 +4,12 @@ import { IFlat } from "../types/IFlat";
 
 export class PostService {
     static async getAllFlats():Promise<IFlat[]> {
-        const response = await axios.get<IFlat[]>('/flats.json');
+        const response = await axios.get<IFlat[]>('https://641ae58f1f5d999a4455bde9.mockapi.io/api/flats');
         return response.data;
     }
 
     static async getFilteredFlats(query:string = '', rooms:number[] = [], priceGap: {from:number, to:number} = {from:0, to:0}):Promise<IFlat[]> {
-        const response = await axios.get<IFlat[]>('/flats.json');
+        const response = await axios.get<IFlat[]>('https://641ae58f1f5d999a4455bde9.mockapi.io/api/flats');
         let result = response.data;
 
         result = result.filter(flat => {
@@ -41,19 +41,17 @@ export class PostService {
     }
 
     static async getFlat(id:string):Promise<IFlat | null> {
-        const response = await axios.get<IFlat[]>('/flats.json');
-        const result = response.data.find((flat) => String(flat.id) === id);
-        return result ? result : null;
+        const response = await axios.get<IFlat>(`https://641ae58f1f5d999a4455bde9.mockapi.io/api/flats/${id}`);
+        return response.data;
     }
 
     static async getAgencies():Promise<IAgency[]> {
-        const response = await axios.get<IAgency[]>('/agencies.json');
+        const response = await axios.get<IAgency[]>('https://641ae58f1f5d999a4455bde9.mockapi.io/api/agencies');
         return response.data;
     }
 
     static async getAgency(id: string):Promise<IAgency | null> {
-        const response = await axios.get<IAgency[]>('/agencies.json');
-        const result = response.data.find(a => String(a.id) === id);
-        return result ? result : null;
+        const response = await axios.get<IAgency>(`https://641ae58f1f5d999a4455bde9.mockapi.io/api/agencies/${id}`);
+        return response.data;
     }
 }

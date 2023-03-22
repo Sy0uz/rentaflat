@@ -3,7 +3,9 @@ import s from './PageLoader.module.css'
 
 const Loader:FC = () => {
     return (
-        <div className={s.loader}/>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom:'50px'}}>
+            <div className={s.loader}/>
+        </div>
     )
 }
 

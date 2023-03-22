@@ -12,9 +12,21 @@ import FlatImagePreview from './Flat/FlatImagePreview';
 
 interface FlatItemProps {
     flat: IFlat;
+    size?: 'default' | 'small';
 }
 
-const FlatItem:FC<FlatItemProps> = ({flat}) => {
+const FlatItem:FC<FlatItemProps> = ({flat, size = 'default'}) => {
+    if (size === 'small')
+        return (
+            <Link to={`/flat/${flat.id}`} className={s.smallWrapper}>
+                <div className={s.smallImg} style={{backgroundImage: `url(${flat.images[0]})`}}/>
+                <div className={s.smallDesc}>
+                    <Title size='minimal'>{flat.price.toLocaleString()} ₽/мес</Title>
+                    <div>{FlatTitleCreator(flat.roomAmount, flat.square.general)}</div>
+                    <div className={s.address}>{FlatAddressCreator(flat.address)}</div>
+                </div>
+            </Link>
+        )
     return (
         <Link to={`/flat/${flat.id}`} className={s.wrapper}>
             <FlatImagePreview images={flat.images}/>

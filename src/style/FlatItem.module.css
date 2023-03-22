@@ -12,6 +12,31 @@
     margin-top: 8px;
 }
 
+.smallWrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    position: relative;
+    text-decoration: none;
+    color:black;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.smallImg {
+    height: 160px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.smallDesc {
+    padding: 6px 8px;
+    background-color: white;
+}
+
 .wrapper:hover {
     box-shadow: 0px 0px 4px 1px rgb(163, 163, 163);
 }

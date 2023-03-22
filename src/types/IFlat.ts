@@ -49,7 +49,7 @@ export interface IPayments {
 }
 
 export interface IFlat {
-    id: number;
+    id: string;
     title: string | null;
     images: string[];
     square: ISquare;

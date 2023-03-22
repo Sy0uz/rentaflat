@@ -2,6 +2,8 @@ import { IFlat } from "../../../types/IFlat";
 
 export interface FlatsState {
     flats: IFlat[];
+    visitedFlats: IFlat[];
+    isVisitedLoading: boolean;
     isQuest: boolean;
     isLoading: boolean;
     error: string;
@@ -9,6 +11,8 @@ export interface FlatsState {
 
 export enum FlatsActionEnum {
     SET_FLATS = "SET_FLATS",
+    SET_VISITED_FLATS = "SET_VISITED_FLATS",
+    SET_VISITED_FLATS_IS_LOADING = "SET_VISITED_FLATS_IS_LOADING",
     SET_FLATS_IS_LOADING = "SET_FLATS_IS_LOADING",
     SET_FLATS_ERROR = "SET_FLATS_ERROR",
     CHANGE_IS_QUEST = "CHANGE_IS_QUEST",
@@ -20,8 +24,18 @@ interface SetFlatsAction {
     payload: IFlat[];
 }
 
+interface SetVisitedFlatsAction {
+    type: FlatsActionEnum.SET_VISITED_FLATS;
+    payload: IFlat[];
+}
+
 interface SetFlatsIsLoadingAction {
     type: FlatsActionEnum.SET_FLATS_IS_LOADING;
+    payload: boolean;
+}
+
+interface SetVisitedFlatsIsLoadingAction {
+    type: FlatsActionEnum.SET_VISITED_FLATS_IS_LOADING;
     payload: boolean;
 }
 
@@ -40,6 +54,8 @@ interface ChangeIsQuestAction {
 }
 
 export type FlatsAction = SetFlatsAction
+                        | SetVisitedFlatsAction
+                        | SetVisitedFlatsIsLoadingAction
                         | SetFlatsIsLoadingAction
                         | SetFlatsErrorAction
                         | ClearFlatsAction

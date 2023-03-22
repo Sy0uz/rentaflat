@@ -15,12 +15,16 @@ export const AgencyPageActionCreators = {
     fetchAgency: (id: string) => async (dispatch: AppDispatch) => {
         try {
             dispatch(AgencyPageActionCreators.setAgencyPageIsLoading(true));
-            setTimeout(async () => {
-                const response = await PostService.getAgency(id);
-                response ? dispatch(AgencyPageActionCreators.setAgency(response)) : dispatch(AgencyPageActionCreators.setAgencyPageError('Агенства с таким id не существует!'));
-                dispatch(AgencyPageActionCreators.setAgencyPageIsLoading(false));
-            }, 500)
+
+            const response = await PostService.getAgency(id);
             
+            if (response)
+                dispatch(AgencyPageActionCreators.setAgency(response))
+            else
+                dispatch(AgencyPageActionCreators.setAgencyPageError('Агенства с таким id не существует!'));
+
+            dispatch(AgencyPageActionCreators.setAgencyPageIsLoading(false));
+
         } catch (error) {
             dispatch(AgencyPageActionCreators.setAgencyPageError("Ошибка!!!"));
             dispatch(AgencyPageActionCreators.setAgencyPageIsLoading(false));
@@ -29,15 +33,16 @@ export const AgencyPageActionCreators = {
     fetchAgencyFlats: (flatsInOwn: number[]) => async (dispatch: AppDispatch) => {
         try {
             dispatch(AgencyPageActionCreators.setAgencyPageFlatsLoading(true));
-            setTimeout(async () => {
-                const result:IFlat[] = [];
-                for (const flat of flatsInOwn) {
-                    const response = await PostService.getFlat(String(flat));
-                    response && result.push(response);
-                }
-                dispatch(AgencyPageActionCreators.setAgencyPageFlats(result));
-                dispatch(AgencyPageActionCreators.setAgencyPageFlatsLoading(false));
-            }, 500)
+
+            const result: IFlat[] = [];
+
+            for (const flat of flatsInOwn) {
+                const response = await PostService.getFlat(String(flat));
+                response && result.push(response);
+            }
+
+            dispatch(AgencyPageActionCreators.setAgencyPageFlats(result));
+            dispatch(AgencyPageActionCreators.setAgencyPageFlatsLoading(false));
         } catch (error) {
             dispatch(AgencyPageActionCreators.setAgencyPageFlatsError("Ошибка!!!"));
             dispatch(AgencyPageActionCreators.setAgencyPageFlatsLoading(false));
