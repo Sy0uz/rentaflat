@@ -2,9 +2,9 @@ import { FC, useEffect } from 'react'
 import { IFlat } from '../../types/IFlat'
 import Centered from '../../UI/Centered/Centered';
 import FlatDescription from './FlatDescription';
-import FlatMain from './FlatMain';
+import FlatMain from './Sidebar/FlatMain';
 import GeneralInfo from './GeneralInfo';
-import FlatHouseParametrs from './FlatHouseParametrs';
+import FlatHouseParametrs from './Sidebar/FlatHouseParametrs';
 import FlatSideBar from './Sidebar/FlatSideBar';
 import s from './../../style/Flat.module.css'
 import { useInView } from 'react-intersection-observer';
@@ -48,7 +48,12 @@ const Flat:FC<FlatProps> = ({flat}) => {
                             
                             <div ref={ref}></div>
 
-                            <GeneralInfo tenants={flat.tenants} features={flat.features} />
+                            {
+                                flat.tenants.length || flat.features.length
+                                    ? <GeneralInfo tenants={flat.tenants} features={flat.features} />
+                                    : <></>
+                            }
+                            
                         </div>
                         
                         <div className={s.sidebar}>

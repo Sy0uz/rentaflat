@@ -9,7 +9,6 @@
     display: none;
     background-color: white;
     top: 110%;
-    padding: 12px 14px;
     border-radius: 6px;
     box-shadow: 1px 1px 4px 0px rgb(110, 110, 110);
     max-height: 400px;
@@ -18,6 +17,5 @@
 }
 
 .dropdown.active {
-    display: flex;
-    gap: 8px;
+    display: block;
 }

@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { IFloor, ISquare } from '../../types/IFlat'
-import Pdiv from '../../UI/Pdiv/Pdiv';
-import Wrapper from '../../UI/Wrapper/Wrapper';
-import s from './../../style/FlatHouseParametrs.module.css'
+import { IFloor, ISquare } from '../../../types/IFlat'
+import Pdiv from '../../../UI/Pdiv/Pdiv';
+import Wrapper from '../../../UI/Wrapper/Wrapper';
+import s from './../../../style/FlatHouseParametrs.module.css'
 
 interface SquareProps {
     square: ISquare;

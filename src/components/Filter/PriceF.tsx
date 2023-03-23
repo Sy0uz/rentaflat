@@ -74,8 +74,8 @@ const PriceF:FC<PrcieFProps> = ({price, setPriceGap}) => {
             }
         >
             <div className={s.inputs}>
-                <Input status={warning ? 'error' : ''} placeholder='От' suffix={<div>₽</div>} size='small' value={price.from ? Number(price.from).toLocaleString() : ''} onChange={fromHandler}/>
-                <Input status={warning ? 'error' : ''} placeholder='До' suffix={<div>₽</div>} size='small' value={price.to ? Number(price.to).toLocaleString(): ''} onChange={toHandler}/>
+                <Input status={warning ? 'error' : ''} placeholder='От' suffix={<div>₽</div>} size='small' value={price.from ? Number(price.from).toLocaleString('ru') : ''} onChange={fromHandler}/>
+                <Input status={warning ? 'error' : ''} placeholder='До' suffix={<div>₽</div>} size='small' value={price.to ? Number(price.to).toLocaleString('ru'): ''} onChange={toHandler}/>
             </div>
         </Dropdown>
     )

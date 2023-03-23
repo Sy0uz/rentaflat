@@ -35,9 +35,11 @@ const RoomF:FC<RoomFProps> = ({rooms, displayedRooms, setRooms}) => {
         <Dropdown opened={opened} setOpened={setOpened} button={
             <FilterBtn className={s.dropdownBtn} opened={opened} minWidth={150}>{BtnText}</FilterBtn>
         }>
-            {
-                displayedRooms.map(room => <RoomBtn key={room} onClick={(active: boolean) => roomBtnHandler(room, active)} active={rooms.find(i => i === room) ? true : false}>{room}</RoomBtn>)
-            }
+            <div className={s.btns}>
+                {
+                    displayedRooms.map(room => <RoomBtn key={room} onClick={(active: boolean) => roomBtnHandler(room, active)} active={rooms.find(i => i === room) ? true : false}>{room}</RoomBtn>)
+                }                
+            </div>
         </Dropdown>
     )
 }

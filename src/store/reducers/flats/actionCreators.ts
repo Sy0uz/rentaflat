@@ -35,8 +35,6 @@ export const FlatsActionCreators = {
 
             if (!visited) return;
 
-
-            console.log(visited);
             dispatch(FlatsActionCreators.setVisitedIsLoading(true));
             
             const result: IFlat[] = [];

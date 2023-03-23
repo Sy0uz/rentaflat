@@ -1,11 +1,50 @@
 .wrapper {
-    margin-top: 16px;
+    margin: 16px 0;
 }
 
 .title {
-    padding: 0 16px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .divider {
     margin: 0 16px;
+}
+
+.sortBtns {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.selectBtn {
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.dropdown {
+    flex-grow: 0;
+}
+
+.select {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.selectItem {
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-right: 3px solid rgba(0,0,0,0);
+}
+
+.selectItem:hover {
+    border-right: 3px solid var(--orange);
+}
+
+.selectItem.active {
+    border-right: 3px solid var(--orange);
 }

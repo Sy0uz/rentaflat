@@ -4,10 +4,11 @@ import s from './../style/Dropdown.module.css'
 interface DropdownProps extends PropsWithChildren {
     opened: boolean;
     setOpened: (bool: boolean) => void;
+    className?: string;
     button: ReactNode | ReactElement | null;
 }
 
-const Dropdown:FC<DropdownProps> = ({opened, setOpened, button, children}) => {
+const Dropdown:FC<DropdownProps> = ({opened, setOpened, button, className, children}) => {
 
     const clickHandler = (e:React.MouseEvent<HTMLElement>):void => {
         e.stopPropagation();
@@ -24,7 +25,7 @@ const Dropdown:FC<DropdownProps> = ({opened, setOpened, button, children}) => {
     }, [opened])
 
     return (
-            <div onClick={clickHandler} className={s.wrapper}>
+            <div onClick={clickHandler} className={`${s.wrapper} ${className}`}>
                 {button}
                 <div onClick={(e) => e.stopPropagation()} className={opened ? [s.dropdown, s.active].join(' ') : s.dropdown}>
                     {children}

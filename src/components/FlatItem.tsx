@@ -43,8 +43,9 @@ const FlatItem:FC<FlatItemProps> = ({flat, size = 'default'}) => {
                 <div className={s.desc}>
                     {CutString(flat.description, 300)}
                 </div>
+
+                <div className={s.time}>{DateStringToString(flat.creationDate)}</div>
             </div>
-            <div className={s.time}>{DateStringToString(flat.creationDate)}</div>
         </Link>
     )
 }

@@ -31,8 +31,8 @@ export interface IAgencyShort {
 
 export interface ISquare {
     general: number;
-    living: number;
-    kitchen: number;
+    living?: number;
+    kitchen?: number;
     rooms?: number[];    
 }
 

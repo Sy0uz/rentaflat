@@ -1,9 +1,36 @@
 .wrapper {
     margin-top: 8px;
+    position: relative;
 }
 
 .flats {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
+    width: 100%;
+    position: relative;
+}
+
+.btns {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    opacity: 0;
+    z-index: 5;
+    transition: 0.2s all ease-in;
+    padding: 0 24px;
+}
+
+.wrapper:hover .btns {
+    opacity: 1;
+}
+
+.window {
+    overflow: hidden;
+}
+
+.allPages {
+    display: flex;
+    gap: 12px;
+    transition: 0.4s all ease-in-out;
+    width: 100%;
 }

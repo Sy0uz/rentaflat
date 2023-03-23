@@ -1,0 +1,52 @@
+{
+    "title": null,
+    "images": [
+        "/images/6/1.jpg",
+        "/images/6/2.jpg",
+        "/images/6/3.jpg",
+        "/images/6/4.jpg",
+        "/images/6/5.jpg",
+        "/images/6/6.jpg",
+        "/images/6/7.jpg",
+        "/images/6/8.jpg"
+    ],
+    "square": {
+        "general": 42,
+        "living": 28,
+        "kitchen": 11,
+        "rooms": [
+            17
+        ]
+    },
+    "phone": 79052295816,
+    "owner": {
+        "proprietor": "ID 19458271"
+    },
+    "price": 10000,
+    "prepaymentCount": 1,
+    "communalPayments": {
+        "isInclude": false,
+        "isCounters": false,
+        "price": 3000
+    },
+    "deposit": 5000,
+    "commission": null,
+    "roomAmount": 1,
+    "address": {
+        "city": "Санкт-Петербург",
+        "street": "проспект Героев",
+        "district": "Красносельский",
+        "house": "35"
+    },
+    "description": "Сдается с 8 апреля!!!Квартира в предчистовой отделке. Ванны и туалета нет,ставить не собираюсь!!!  Рассмотрю вариант под студию ресниц ногтей и т.д. на длительный срок. ВСЕ ЧТО НА ФОТО НЕ БУДЕТ,ТОЛЬКО СТЕНЫ!!!\n\n-----\n\nПримечание: у собственника могут быть дополнительные пожелания к жильцам - обсудите их в чате или по телефону",
+    "floor": {
+        "current": 9,
+        "total": 22
+    },
+    "year": 2021,
+    "tenants": [],
+    "features": [],
+    "original": "https://spb.cian.ru/rent/flat/271015060/",
+    "creationDate": "3-21-2023-12:21",
+    "id": "5"
+}

@@ -8,6 +8,7 @@ import FlatAgency from './FlatAgency'
 import FlatCommunication from './FlatCommunication'
 import FlatPrice from './FlatPrice'
 import FlatPriceDescription from './FlatPriceDescription'
+import FlatProprietor from './FlatProprietor'
 import FlatRealtor from './FlatRealtor'
 
 interface SideBarProps {
@@ -48,7 +49,17 @@ const FlatSideBar:FC<SideBarProps> = ({flat}) => {
                         <MyDivider/>
                         <FlatRealtor realtor={flat.owner.realtor}/>
                     </>
-                    :<></>
+                    : <></>
+            }
+
+            {
+                flat.owner.proprietor
+                    ?
+                    <>
+                        <MyDivider/>
+                        <FlatProprietor proprietor={flat.owner.proprietor}/>
+                    </>
+                    : <></>
             }
         </Wrapper>
     )

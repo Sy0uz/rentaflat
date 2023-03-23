@@ -1,14 +1,14 @@
 import {FC} from 'react'
-import { IFlat } from '../../types/IFlat'
-import Pdiv from '../../UI/Pdiv/Pdiv';
-import Title from '../../UI/Title/Title';
-import Wrapper from '../../UI/Wrapper/Wrapper';
-import { FlatAddressCreator } from '../../utils/FlatAddressCreator';
-import { FlatTitleCreator } from '../../utils/FlatTitleCreator';
-import FlatImages from './FlatImages';
-import s from './../../style/FlatMain.module.css'
-import MyDivider from '../../UI/MyDivider/MyDivider';
-import { DateStringToString } from '../../utils/DateToString';
+import { IFlat } from '../../../types/IFlat'
+import Pdiv from '../../../UI/Pdiv/Pdiv';
+import Title from '../../../UI/Title/Title';
+import Wrapper from '../../../UI/Wrapper/Wrapper';
+import { FlatAddressCreator } from '../../../utils/FlatAddressCreator';
+import { FlatTitleCreator } from '../../../utils/FlatTitleCreator';
+import FlatImages from '../FlatImages';
+import s from './../../../style/FlatMain.module.css'
+import MyDivider from '../../../UI/MyDivider/MyDivider';
+import { DateStringToString } from '../../../utils/DateToString';
 
 interface FlatMainProps {
     flat: IFlat;
