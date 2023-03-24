@@ -1,8 +1,36 @@
 import axios from "axios";
 import { IAgency } from "../types/IAgency";
 import { IFlat } from "../types/IFlat";
+import { IUser } from "../types/IUser";
 
 export class PostService {
+    static async authUser(username: string, password: string):Promise<IUser | null> {
+        const response = await axios.get<IUser[]>('/users.json');
+
+        const userAuth = response.data.find((user) => user.username === username && user.password === password);
+
+        if (!userAuth) return null;
+
+        localStorage.setItem('auth', JSON.stringify({username: userAuth.username, password: userAuth.password}));
+        return userAuth;
+    }
+
+    static async checkUserAuth():Promise<IUser | null> {
+        const response = await axios.get<IUser[]>('/users.json');
+
+        const storage = localStorage.getItem('auth');
+        if (!storage) return null;
+        
+        const userAuth:IUser = JSON.parse(storage);
+
+        const result = response.data.find(user => user.username === userAuth.username && user.password === userAuth.password);
+        return result ? result : null;
+    }
+
+    static async logoutUser() {
+        localStorage.removeItem('auth');
+    }
+
     static async getAllFlats():Promise<IFlat[]> {
         const response = await axios.get<IFlat[]>('https://641ae58f1f5d999a4455bde9.mockapi.io/api/flats');
         return response.data;

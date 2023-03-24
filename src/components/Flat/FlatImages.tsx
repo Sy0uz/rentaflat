@@ -2,6 +2,7 @@ import { FC, useState, useEffect } from 'react';
 import s from './../../style/FlatImages.module.css';
 import { Button } from 'antd';
 import { LeftOutlined , RightOutlined } from '@ant-design/icons';
+import FlatImageItem from './FlatImageItem';
 
 interface ImagesProps {
     images: string[];
@@ -40,7 +41,7 @@ const FlatImages:FC<ImagesProps> = ({images, size = 'default'}) => {
                 <div className={s.allPages} style={{transform:`translateX(${position}%)`}}>
                     {
                         images.map(
-                            i => <div key={i} className={size === 'small' ? [s.imgBox, s.small].join(' ') : s.imgBox} style={{backgroundImage: `url(${i})`}}/>
+                            i => <FlatImageItem key={i} size={size} backgroundImage={i}/>
                         )
                     }
                 </div>

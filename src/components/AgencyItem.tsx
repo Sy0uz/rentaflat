@@ -19,6 +19,10 @@ const AgencyItem:FC<AgencyItemProps> = ({agency}) => {
 
             <div className={s.spec}>{agency.specialization ? agency.specialization : "Специализация отсутсвует."}</div>
 
+            <div className={s.flatsCount}>
+                <div className={s.countTitle}>Объектов в работе</div>
+                <div className={s.count}>{agency.flatIdInOwn.length}</div>
+            </div>
         </Link>
     )
 }

@@ -47,13 +47,13 @@ const FindedFlats:FC<FindedFlatsProps> = ({flats}) => {
                 setBtnText('Сортировка');
                 return flats;
         }
-    }, [sortBy])
+    }, [sortBy, flats])
 
     const reverseSortedFlats: IFlat[] = useMemo(() => {
         if (reverseOrder)
             return [...sortedFlats].reverse();
         else return sortedFlats;
-    }, [reverseOrder, sortBy])
+    }, [reverseOrder, sortBy, flats])
 
     const handler = (value:string):void => {
         setSortBy(value)

@@ -1,0 +1,21 @@
+.authBtn {
+    font-weight: 500;
+}
+
+.userBtn {
+    font-weight: 500;
+}
+
+.icon {
+    font-size: 12px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon.active {
+    transform: rotate(180deg);
+}
+
+.dropdownMenu {
+    padding: 4px 0;
+    min-width: 120px;
+}
