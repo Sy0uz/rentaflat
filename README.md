@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# You can test this site on the resource Netlify
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Netlify Source [Rent a flat](https://delightful-raindrop-08ca97.netlify.app).
 
 ## Available Scripts
 
