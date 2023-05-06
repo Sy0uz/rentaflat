@@ -9,15 +9,15 @@ interface DescriptionProps {
     text: string;
 }
 
-const FlatDescription:FC<DescriptionProps> = ({text}) => {
+const FlatDescription: FC<DescriptionProps> = ({ text }) => {
     return (
         <Wrapper>
             <Pdiv>
                 <Title size='small'>Описание</Title>
             </Pdiv>
-            <MyDivider/>
+            <MyDivider />
             <Pdiv>
-                <NewLineText text={text}/>
+                <NewLineText text={text} />
             </Pdiv>
         </Wrapper>
     )

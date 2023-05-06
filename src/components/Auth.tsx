@@ -5,14 +5,14 @@ import { useTypedSelector } from '../hooks/useTypedSelector'
 import AuthModal from './AuthModal'
 import { useActions } from '../hooks/useActions'
 import Dropdown from './Dropdown'
-import {CaretDownOutlined} from '@ant-design/icons'
+import { CaretDownOutlined } from '@ant-design/icons'
 
-const Auth:FC = () => {
+const Auth: FC = () => {
 
-    const {isAuth, error, isLoading, username} = useTypedSelector(state => state.authReducer);
+    const { isAuth, error, isLoading, username, isSignUpLoading } = useTypedSelector(state => state.authReducer);
     const [opened, setOpened] = useState<boolean>(false);
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
-    const {authUser, logoutUser} = useActions();
+    const { authUser, logoutUser, signUpUser } = useActions();
 
     const logoutHandler = () => {
         logoutUser();
@@ -27,6 +27,10 @@ const Auth:FC = () => {
         authUser(username, password);
     }
 
+    const onSignUp = async (username: string, password: string) => {
+        signUpUser(username, password);
+    }
+
     useEffect(() => {
         if (isAuth)
             setOpened(false);
@@ -36,16 +40,16 @@ const Auth:FC = () => {
         <>
             {
                 isAuth
-                ? <Dropdown opened={dropdownOpen} setOpened={setDropdownOpen} button={
-                    <Button type='text' icon={<CaretDownOutlined className={dropdownOpen ? [s.icon, s.active].join(' ') : s.icon}/>} size='large' className={s.userBtn}>{username}</Button>
-                }>
-                    <div className={s.dropdownMenu}>
-                        <Button type='text' block className={s.authBtn} onClick={logoutHandler}>Выход</Button>
-                    </div>
-                </Dropdown>
-                : <Button type='primary' className={s.authBtn} onClick={authHandler}>Авторизация</Button>
+                    ? <Dropdown opened={dropdownOpen} setOpened={setDropdownOpen} button={
+                        <Button type='text' icon={<CaretDownOutlined className={dropdownOpen ? [s.icon, s.active].join(' ') : s.icon} />} size='large' className={s.userBtn}>{username}</Button>
+                    }>
+                        <div className={s.dropdownMenu}>
+                            <Button type='text' block className={s.authBtn} onClick={logoutHandler}>Выход</Button>
+                        </div>
+                    </Dropdown>
+                    : <Button type='primary' className={s.authBtn} onClick={authHandler}>Авторизация</Button>
             }
-            <AuthModal opened={opened} setOpened={setOpened} error={error} submit={onSubmit} isLoading={isLoading}/>
+            <AuthModal opened={opened} setOpened={setOpened} error={error} submit={onSubmit} signUp={onSignUp} isLoading={isLoading} isSignUpLoading={isSignUpLoading} />
         </>
     )
 }

@@ -17,16 +17,16 @@ interface FlatProps {
     flat: IFlat;
 }
 
-const Flat:FC<FlatProps> = ({flat}) => {
+const Flat: FC<FlatProps> = ({ flat }) => {
 
-    const {fetchVisitedFlats} = useActions();
-    const {visitedFlats, isVisitedLoading} = useTypedSelector(state => state.flatsReducer)
+    const { fetchVisitedFlats } = useActions();
+    const { visitedFlats, isVisitedLoading } = useTypedSelector(state => state.flatsReducer)
 
-    const {ref, inView} = useInView({
+    const { ref, inView } = useInView({
         threshold: 0.1,
         triggerOnce: true,
     });
-    
+
 
     useEffect(() => {
         if (inView)
@@ -40,12 +40,12 @@ const Flat:FC<FlatProps> = ({flat}) => {
                 <>
                     <div className={s.content}>
                         <div className={s.main}>
-                            <FlatMain flat={flat}/>
+                            <FlatMain flat={flat} />
 
-                            <FlatHouseParametrs square={flat.square} year={flat.year} floor={flat.floor}/>
+                            <FlatHouseParametrs square={flat.square} year={flat.year} floor={flat.floor} />
 
                             <FlatDescription text={flat.description} />
-                            
+
                             <div ref={ref}></div>
 
                             {
@@ -53,11 +53,11 @@ const Flat:FC<FlatProps> = ({flat}) => {
                                     ? <GeneralInfo tenants={flat.tenants} features={flat.features} />
                                     : <></>
                             }
-                            
+
                         </div>
-                        
+
                         <div className={s.sidebar}>
-                            <FlatSideBar flat={flat}/> 
+                            <FlatSideBar flat={flat} />
                         </div>
                     </div>
                     {

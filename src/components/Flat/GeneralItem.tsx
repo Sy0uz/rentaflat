@@ -6,7 +6,7 @@ interface GeneralItemProps {
     item: Features | Tenants;
 }
 
-const GeneralItem: FC<GeneralItemProps> = ({item}) => {
+const GeneralItem: FC<GeneralItemProps> = ({ item }) => {
     switch (item) {
         case Features.FRIDGE:
             return <div className={[s.icon, s.fridge].join(' ')}>Холодильник</div>

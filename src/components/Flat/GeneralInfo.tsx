@@ -12,41 +12,41 @@ interface GeneralInfoProps {
     features: Features[];
 }
 
-const GeneralInfo:FC<GeneralInfoProps> = ({tenants, features}) => {
+const GeneralInfo: FC<GeneralInfoProps> = ({ tenants, features }) => {
     return (
         <Wrapper className={s.wrapper}>
             <Pdiv>
                 <Title size='small'>Общая информация</Title>
             </Pdiv>
-            <MyDivider/>
+            <MyDivider />
             {
                 tenants.length
-                ?
-                <div className={s.tenants}>
-                    {
-                        tenants.map((item) => <GeneralItem item={item} key={item}/>)
-                    }
-                </div>
-                :
-                <></>                
+                    ?
+                    <div className={s.tenants}>
+                        {
+                            tenants.map((item) => <GeneralItem item={item} key={item} />)
+                        }
+                    </div>
+                    :
+                    <></>
             }
 
             {
                 tenants.length && features.length
-                ? <MyDivider/>
-                : <></>
+                    ? <MyDivider />
+                    : <></>
             }
 
             {
                 features.length
-                ?
-                <div className={s.features}>
-                    {
-                        features.map((item) => <GeneralItem item={item} key={item}/>)
-                    }
-                </div>
-                :
-                <></>            
+                    ?
+                    <div className={s.features}>
+                        {
+                            features.map((item) => <GeneralItem item={item} key={item} />)
+                        }
+                    </div>
+                    :
+                    <></>
             }
 
         </Wrapper>

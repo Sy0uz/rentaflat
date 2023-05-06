@@ -11,31 +11,31 @@ interface HomeProps {
     isQuest: boolean;
 }
 
-const Home: FC<HomeProps> = ({flats, isQuest}) => {
+const Home: FC<HomeProps> = ({ flats, isQuest }) => {
     return (
         <div>
             <div className={s.image}>
                 <Centered className={s.content}>
                     <Title size='large' className={s.title}>Аренда квартир в Санкт-Петербурге</Title>
-                    <Filter/>
+                    <Filter />
                 </Centered>
             </div>
             {
                 isQuest && flats.length
-                ?
-                <Centered>
-                    <FindedFlats flats={flats}/>
-                </Centered>
-                :
-                isQuest
-                ?
-                <Centered className={s.notFoundBox}>
-                    <Title>
-                        Объявлений не найдено! 
-                    </Title>
-                </Centered>
-                :
-                <></>             
+                    ?
+                    <Centered>
+                        <FindedFlats flats={flats} />
+                    </Centered>
+                    :
+                    isQuest
+                        ?
+                        <Centered className={s.notFoundBox}>
+                            <Title>
+                                Объявлений не найдено!
+                            </Title>
+                        </Centered>
+                        :
+                        <></>
             }
 
         </div>

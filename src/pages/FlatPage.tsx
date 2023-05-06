@@ -10,14 +10,16 @@ type FlatPageParams = {
     id: string;
 }
 
-const FlatPage:FC = () => {
+const FlatPage: FC = () => {
 
     const params = useParams<FlatPageParams>();
     const { flat, isLoading, error } = useTypedSelector(state => state.flatPageReducer);
     const { fetchFlat } = useActions();
 
     useEffect(() => {
-        params.id && fetchFlat(params.id);
+        if (!params.id) return;
+        if (flat && flat.id === params.id) return;
+        fetchFlat(params.id);
     }, [params.id])
 
     useEffect(() => {
@@ -31,14 +33,14 @@ const FlatPage:FC = () => {
         }
         else {
             let newHistory = new Set(JSON.parse(history));
-            
+
             newHistory.add(params.id);
             localStorage.setItem('history', JSON.stringify(Array.from(newHistory)));
         }
     }, [flat])
 
     if (isLoading)
-        return <PageLoader/>
+        return <PageLoader />
 
     if (error)
         return <Centered>
@@ -49,7 +51,7 @@ const FlatPage:FC = () => {
 
 
     return (
-        flat && <Flat flat={flat}/>
+        flat && <Flat flat={flat} />
     )
 }
 

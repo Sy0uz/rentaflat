@@ -6,14 +6,14 @@ interface ImagePreviewProps {
     images: string[];
 }
 
-const FlatImagePreview:FC<ImagePreviewProps> = ({images}) => {
+const FlatImagePreview: FC<ImagePreviewProps> = ({ images }) => {
 
     return (
         <div className={s.wrapper}>
-            <FlatImages images={images} size='small'/>
+            <FlatImages images={images} size='small' />
             <div className={s.miniImages}>
                 {
-                    images.map((i, idx) => idx < 4 && idx > 0 ? <div key={i} style={{backgroundImage:`url(${i})`}} className={s.image}/> : null)
+                    images.map((i, idx) => idx < 4 && idx > 0 ? <div key={i} style={{ backgroundImage: `url(${i})` }} className={s.image} /> : null)
                 }
             </div>
         </div>

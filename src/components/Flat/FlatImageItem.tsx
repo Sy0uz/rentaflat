@@ -7,28 +7,28 @@ interface FlatImageItemProps {
     size?: 'small' | 'default';
 }
 
-const FlatImageItem:FC<FlatImageItemProps> = ({backgroundImage, size}) => {
+const FlatImageItem: FC<FlatImageItemProps> = ({ backgroundImage, size }) => {
 
-    const {ref, inView} = useInView({
+    const { ref, inView } = useInView({
         threshold: 0,
         triggerOnce: true,
     });
 
     return (
-        <div 
-            ref={ref} 
+        <div
+            ref={ref}
             className={
-                size === 'small' 
-                    ? 
-                        [s.imgBox, s.small].join(' ') 
-                    : 
-                        s.imgBox} 
+                size === 'small'
+                    ?
+                    [s.imgBox, s.small].join(' ')
+                    :
+                    s.imgBox}
             style={
-                inView 
-                    ? 
-                        {backgroundImage: `url(${backgroundImage})`} 
-                    : 
-                        {backgroundColor:'rgb(240,240,240)'}}
+                inView
+                    ?
+                    { backgroundImage: `url(${backgroundImage})` }
+                    :
+                    { backgroundColor: 'rgb(240,240,240)' }}
         />
     )
 }

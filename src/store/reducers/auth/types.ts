@@ -4,6 +4,7 @@ export interface AuthState {
     error: string;
     username: string;
     password: string;
+    isSignUpLoading: boolean;
 }
 
 export enum AuthActionEnum {
@@ -11,11 +12,12 @@ export enum AuthActionEnum {
     SET_USERNAME = "SET_USERNAME",
     SET_PASSWORD = "SET_PASSWORD",
     SET_IS_AUTH_LOADING = "SET_IS_AUTH_LOADING",
-    SET_IS_AUTH_ERROR = "SET_IS_AUTH_ERROR"
+    SET_IS_AUTH_ERROR = "SET_IS_AUTH_ERROR",
+    SET_IS_SIGNUP_LOADING = "SET_IS_SIGNUP_LOADING",
 }
 
 interface SetAuthAciton {
-    type:AuthActionEnum.SET_AUTH;
+    type: AuthActionEnum.SET_AUTH;
     payload: boolean;
 }
 
@@ -39,8 +41,14 @@ interface SetIsAuthErrorAction {
     payload: string;
 }
 
+interface SetIsSignUpLoadingAction {
+    type: AuthActionEnum.SET_IS_SIGNUP_LOADING;
+    payload: boolean;
+}
+
 export type AuthAction = SetAuthAciton
-                       | SetUsernameAction
-                       | SetPasswordAction
-                       | SetIsAuthLoadingAction
-                       | SetIsAuthErrorAction; 
+    | SetUsernameAction
+    | SetPasswordAction
+    | SetIsAuthLoadingAction
+    | SetIsAuthErrorAction
+    | SetIsSignUpLoadingAction;
